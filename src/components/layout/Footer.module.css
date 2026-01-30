@@ -1,0 +1,35 @@
+.footer {
+    background-color: #000;
+    box-shadow: 0px 0px 30px rgba(191, 255, 62, 0.37);
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    color: #fff;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.message {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px
+}
+
+.social_list {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    justify-content: center;
+}
+
+.social_list li:hover {
+    transform: scale(1.2);
+    transition: all 0.2s all;
+}
+

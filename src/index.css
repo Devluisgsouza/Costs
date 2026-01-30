@@ -6,10 +6,15 @@
   color: #fff;
 }
 
+.app {
+  display: flex;
+  flex-direction: column;
+}
+
 html,
 body,
 #root {
-  background-color: #000;
+  background-image: radial-gradient(circle, rgb(21, 22, 13) 0%, rgb(2, 1, 7) 80%);
   height: 100%;
 }
 
