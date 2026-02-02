@@ -4,7 +4,6 @@
     display: flex;
     flex-direction: column;
     padding: 1em;
-    color: #fff;
     position: relative;
     width: 100%;
     text-align: center;
@@ -16,7 +15,12 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    gap: 10px
+    gap: 5px;
+}
+
+.message h1{
+    font-size: 20px;
+    color: #ffbb33;
 }
 
 .social_list {
@@ -29,7 +33,7 @@
 }
 
 .social_list li:hover {
-    transform: scale(1.2);
-    transition: all 0.2s all;
+    transform: scale(1.4);
+    transition: 0.5s all;
 }
 

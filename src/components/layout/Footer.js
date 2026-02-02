@@ -7,7 +7,7 @@ function Footer() {
     return(
         <footer className={styles.footer}>
             <div className={styles.message}>
-                <p>COSTS</p>
+                <h1>COSTS</h1>
                 <p>All rights reserved © 2026</p>
             </div>
             <ul className={styles.social_list}>

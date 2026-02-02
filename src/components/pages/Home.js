@@ -1,52 +1,16 @@
+import styles from './Home.module.css';
+import cashs from '../../img/cashs.png';
+import LinkButton from '../layout/LinkButton';
+
+
 function Home() {
     return(
-        <div>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-            <h1>Home page</h1>
-        </div>
+        <section className={styles.home_container}>
+            <h1>Bem-vindo ao <span>COSTS</span></h1>
+            <p>Comece a gerenciar os seus projetos agora mesmo!</p>
+            <LinkButton to="/newproject" text="Criar Projeto"/>
+            <img src={cashs} alt="Costs" />
+        </section>
     )
 }
 
