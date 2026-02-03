@@ -21,6 +21,7 @@
 .message h1{
     font-size: 20px;
     color: #ffbb33;
+    
 }
 
 .social_list {
@@ -32,8 +33,12 @@
     justify-content: center;
 }
 
-.social_list li:hover {
-    transform: scale(1.4);
+.social_list li{
     transition: 0.5s all;
+
+}
+
+.social_list li:hover {
+    transform: scale(1.3);
 }
 

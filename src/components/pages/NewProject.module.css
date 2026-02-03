@@ -1,0 +1,19 @@
+.newproject_container{
+    width: 100%;
+    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.newproject_container h1{
+    font-size: 50px;
+    margin-bottom: .5em;
+    margin-top: 100px;
+}
+
+.newproject_container p{
+    margin-bottom: 1.5em;
+    font-size: 20px;
+    color: #ffbb33;
+}
