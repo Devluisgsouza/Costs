@@ -12,13 +12,13 @@ function Footer() {
             </div>
             <ul className={styles.social_list}>
                 <li>
-                    <FaGithub />
+                    <a href="https://github.com/Devluisgsouza"><FaGithub /></a>
                 </li>
                 <li>
-                    <FaLinkedin />
+                    <a href="https://linkedin.com/in/luis-guilherme-de-souza-7b5a75318/"><FaLinkedin /></a>
                 </li>
                 <li>
-                    <FaWhatsapp />
+                    <a href="https://wa.me/5512978145677"><FaWhatsapp /></a>
                 </li>
             </ul>
         </footer>
