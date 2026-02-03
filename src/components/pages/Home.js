@@ -10,6 +10,7 @@ function Home() {
             <p>Comece a gerenciar os seus projetos agora mesmo!</p>
             <LinkButton to="/newproject" text="Criar Projeto"/>
             <img src={cashs} alt="Costs" />
+            <p><span>O bom gerenciamento de um projeto é a chave para o seu sucesso!</span></p>
         </section>
     )
 }

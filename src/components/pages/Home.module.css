@@ -22,7 +22,14 @@
     font-size: 20px;
 }
 
+.home_container p span{
+    color: #ffbb33;
+    font-weight: bold;
+    font-style: italic;
+}
+
 .home_container img{
     width: 400px;
     margin: 3em 0;
 }
+
