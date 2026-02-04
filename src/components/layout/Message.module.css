@@ -1,0 +1,49 @@
+.message {
+  width: 300px;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  font-weight: bold;
+  border: 1px solid;
+  position: fixed;
+
+  /* estado inicial */
+  opacity: 0;
+  transform: translateY(-15px);
+
+  animation: slideFadeIn 1s ease forwards;
+}
+
+.success {
+  box-shadow: 0px 0px 10px #4ef700;
+  border-color: #4ef700;
+  background-color: rgba(191, 255, 62, 0.37);
+}
+
+.error {
+  box-shadow: 0px 0px 10px #f70000;
+  border-color: #f70000;
+  background-color: rgba(255, 101, 62, 0.37);
+}
+
+/* animações */
+@keyframes slideFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideFadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+}
+
+.hide {
+  animation: slideFadeOut 0.5s ease forwards;
+}

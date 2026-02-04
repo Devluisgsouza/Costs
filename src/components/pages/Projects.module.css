@@ -1,0 +1,22 @@
+.container_message {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.container_projects {
+    width: 100%;
+    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container_projects h1 {
+    color: #ffbb33
+}
+
+
