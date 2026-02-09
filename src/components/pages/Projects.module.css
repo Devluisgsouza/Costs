@@ -10,13 +10,22 @@
 .container_projects {
     width: 100%;
     margin-top: 120px;
+    margin-bottom: 120px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+.container_projects section {
+    display: flex;
+    margin: 2em;
+    max-width: 75em;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .container_projects h1 {
-    color: #ffbb33
+    color: #ffbb33;
 }
 
 
