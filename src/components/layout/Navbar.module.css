@@ -1,10 +1,12 @@
 .navbar {
-    display: flex;
+    display: sticky;
     background-color: #000;
     padding: 1em;
     box-shadow: 0px 0px 30px rgba(191, 255, 62, 0.37);
     position: fixed;
     width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
 .imglogo {

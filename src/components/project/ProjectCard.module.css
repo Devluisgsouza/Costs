@@ -1,6 +1,7 @@
 /* Card */
 
 .project_card {
+    display: block;
     padding: 1em;
     border: 1px solid #ffbb33;
     border-radius: 10px;

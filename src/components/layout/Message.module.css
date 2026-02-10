@@ -20,13 +20,13 @@
 .success {
   box-shadow: 0px 0px 10px #4ef700;
   border-color: #4ef700;
-  background-color: rgba(191, 255, 62, 0.37);
+  background-color: rgb(71, 102, 10);
 }
 
 .error {
   box-shadow: 0px 0px 10px #f70000;
   border-color: #f70000;
-  background-color: rgba(255, 101, 62, 0.37);
+  background-color: rgb(105, 34, 17);
 }
 
 /* animações */
