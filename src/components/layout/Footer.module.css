@@ -34,11 +34,11 @@
 }
 
 .social_list li{
-    transition: 0.5s all;
+    transition: 0.2s;
 
 }
 
 .social_list li:hover {
-    transform: scale(1.3);
+    transform: scale(1.2);
 }
 
