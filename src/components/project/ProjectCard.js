@@ -11,8 +11,7 @@ function ProjectCard({id, name, budget, category, handleRemove}) {
     return Number(value).toLocaleString('pt-BR', {
         style: 'currency',
         currency: 'BRL',
-    })
-  }
+    })}
 
     const remove = (e) => {
         e.preventDefault()
@@ -36,7 +35,7 @@ function ProjectCard({id, name, budget, category, handleRemove}) {
                 </p>
             </div>
             <div className={styles.project_card_actions}>
-                <Link to="/">
+                <Link to={`/project/${id}`}>
                     <BsPencil /> Editar
                 </Link>
                 <button onClick={remove}>
