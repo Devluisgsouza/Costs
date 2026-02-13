@@ -65,7 +65,7 @@
 }
 
 
-.category_text .infra {
+.category_text .infraestrutura {
     background-color: #ffbb33;
 }
 
@@ -81,6 +81,9 @@
     background-color: #f78c00;
 }
 
+.category_text .outros {
+    background-color: #f700d6;
+}
 
 /* Ações */
 

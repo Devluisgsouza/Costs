@@ -34,12 +34,23 @@
       "services": []
     },
     {
-      "id": "82d8",
-      "name": "Contratar PO",
+      "id": "8998",
+      "category": {
+        "id": "5",
+        "name": "Outros"
+      },
+      "budget": "1000",
+      "name": "teste",
+      "cost": 0,
+      "services": []
+    },
+    {
+      "id": "4442",
+      "name": "Viajar ŕo exterior",
       "budget": "7000",
       "category": {
-        "id": "1",
-        "name": "Infra"
+        "id": "4",
+        "name": "Planejamento"
       },
       "cost": 0,
       "services": []
@@ -48,7 +59,7 @@
   "categories": [
     {
       "id": "1",
-      "name": "Infra"
+      "name": "Infraestrutura"
     },
     {
       "id": "2",
@@ -61,6 +72,10 @@
     {
       "id": "4",
       "name": "Planejamento"
+    },
+    {
+      "id": "5",
+      "name": "Outros"
     }
   ]
 }
