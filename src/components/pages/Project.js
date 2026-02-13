@@ -5,7 +5,6 @@ import { useState, useEffect} from 'react'
 import Loading from '../layout/Loading'
 
 
-
 function Project() {
     
     const {id} = useParams()
@@ -45,8 +44,6 @@ function Project() {
             }).format(value)
     }
 
-
-
     return(
         <section className={styles.container_project}>
             <div className={styles.container_project_name}>
@@ -81,7 +78,7 @@ function Project() {
                     <button onClick={toggleProjecForm}>
                         {!showProjectForm ? 'Editar Projeto' : 'Fechar'}
                     </button>
-            </div>
+                </div>
             </div>
         </section>
     )

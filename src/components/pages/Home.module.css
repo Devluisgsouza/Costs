@@ -11,6 +11,8 @@
 .home_container h1{
     font-size: 50px;
     margin-bottom: .5em;
+    background-color: #000;
+    padding: .5em;
 }
 
 .home_container h1 span{
@@ -29,7 +31,7 @@
 }
 
 .home_container img{
-    width: 400px;
-    margin: 3em 0;
+    width: 600px;
+    margin: 2em 0;
 }
 
