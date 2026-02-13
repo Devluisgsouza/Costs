@@ -3,11 +3,12 @@
 .project_card {
     display: block;
     padding: 1em;
-    border: 1px solid #ffbb33;
+    background-color: transparent;
+    box-shadow: -10px 10px 10px #ffbb3349;
     border-radius: 10px;
     width: 300px;
     height: 200px;
-    margin: 20px;
+    margin: 30px;
     transition: 0.2s;
 }
 
