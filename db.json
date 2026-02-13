@@ -34,34 +34,12 @@
       "services": []
     },
     {
-      "id": "1f6a",
-      "name": "Quarto Projeto",
-      "budget": "1000",
+      "id": "82d8",
+      "name": "Contratar PO",
+      "budget": "7000",
       "category": {
         "id": "1",
         "name": "Infra"
-      },
-      "cost": 0,
-      "services": []
-    },
-    {
-      "id": "1111",
-      "name": "Quinto Projeto",
-      "budget": "67888",
-      "category": {
-        "id": "3",
-        "name": "Design"
-      },
-      "cost": 0,
-      "services": []
-    },
-    {
-      "id": "f252",
-      "name": "Sexto Projeto",
-      "budget": "45666",
-      "category": {
-        "id": "2",
-        "name": "Desenvolvimento"
       },
       "cost": 0,
       "services": []

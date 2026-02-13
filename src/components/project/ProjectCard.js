@@ -3,7 +3,6 @@ import { BsPencil, BsFillTrashFill } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 
 
-
 function ProjectCard({id, name, budget, category, handleRemove}) {
 
 
@@ -20,6 +19,11 @@ function ProjectCard({id, name, budget, category, handleRemove}) {
         if (confirm) {
         handleRemove(id)
         }
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth" 
+        })
     }
     
 
@@ -43,6 +47,7 @@ function ProjectCard({id, name, budget, category, handleRemove}) {
                 </button>
             </div>
         </div>
+        
 
     )
 }

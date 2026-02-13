@@ -9,11 +9,12 @@ import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import Projects from './components/pages/Projects'
 import Project from './components/pages/Project'
+import ScrollTop from './components/layout/ScrollTop'
 
 function App() {
   return (
     <Router>
-
+      <ScrollTop />
       <Navbar />
       <Container customClass="min-height">
         <Routes>
@@ -26,7 +27,6 @@ function App() {
         </Routes>
       </Container>
       <Footer />
-    
     </Router>
   )
 }
