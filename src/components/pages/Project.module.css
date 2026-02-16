@@ -3,6 +3,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 140px;
+}
+
+.message_container {
+    display: flex;
+    align-items: center;
+    margin-top: 200px;
 }
 
 .container_project_name {
@@ -69,4 +76,8 @@
     background-color: #ffbb33;
     color: #000;
     transform: scale(1.1);
+}
+
+.form_container {
+    margin: 4em;
 }

@@ -11,6 +11,8 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
 
     const [categories, setCategories] = useState([])
     const [project, setProject] = useState(projectData || {})
+    const [errors, setErrors] = useState({})
+
 
 
     useEffect(() => {
@@ -29,9 +31,31 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
 
 
     const submit = (e) => {
-        e.preventDefault()
-        handleSubmit(project)
+    e.preventDefault()
+
+    let newErrors = {}
+
+    if (!project.name || project.name.trim() === "") {
+        newErrors.name = "O nome do projeto é obrigatório"
     }
+
+    if (!project.budget || project.budget <= 0) {
+        newErrors.budget = "O orçamento deve ser maior que zero"
+    }
+
+    if (!project.category || !project.category.id) {
+        newErrors.category = "Selecione uma categoria"
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+        setErrors(newErrors)
+        return
+    }
+
+    setErrors({})
+    handleSubmit(project)
+}
+
 
     function handleChange(e) {
         setProject({ ...project, [e.target.name] : e.target.value})
@@ -54,6 +78,9 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
                 handleOnChange={handleChange}
                 value={project.name ? project.name: ''}
             />
+            {errors.name && <p className={styles.error}>{errors.name}</p>}
+
+
             <Input 
                 type="number"
                 text="Orçamento do projeto"
@@ -62,6 +89,9 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
                 handleOnChange={handleChange}
                 value={project.budget ? project.budget: ''}
             />
+            {errors.budget && <p className={styles.error}>{errors.budget}</p>}
+
+
             <Select 
                 name="category_id"
                 text="Selecione a categoria"
@@ -69,6 +99,8 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
                 handleOnChange={handleCategory}
                 value={project.category ? project.category.id : ''}
             />
+            {errors.category && <p className={styles.error}>{errors.category}</p>}
+
             <SubmitButton 
                 text={btnText}
             />

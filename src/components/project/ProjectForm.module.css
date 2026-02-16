@@ -1,3 +1,10 @@
 .form{
     margin: 1em 0;
 }
+
+.error {
+    color: #ff4d4d !important;
+    font-size: 0.85rem !important;
+    margin-top: -8px !important;
+    margin-bottom: 10px !important;
+}
