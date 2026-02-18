@@ -11,8 +11,9 @@
 .home_container h1{
     font-size: 50px;
     margin-bottom: .5em;
-    background-color: #000;
     padding: .5em;
+    box-shadow: -10px 10px 20px #ffbb333f;
+    border-radius: 20px;
 }
 
 .home_container h1 span{
@@ -20,7 +21,8 @@
 }
 
 .home_container p{
-    margin-bottom: 2.5em;
+    margin-bottom: 2em;
+    margin-top: 1em;
     font-size: 20px;
 }
 

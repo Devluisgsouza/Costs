@@ -14,7 +14,7 @@
 html,
 body,
 #root {
-  background-image: radial-gradient(circle, rgb(15, 15, 15) 0%, rgb(0, 0, 0) 70%);
+  background-color: #000;
   height: 100%;
 }
 

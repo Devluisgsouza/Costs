@@ -3,11 +3,11 @@
     box-shadow: 0px 0px 30px rgba(191, 255, 62, 0.37);
     display: flex;
     flex-direction: column;
-    padding: 1em;
+    padding: .3em;
     position: relative;
     width: 100%;
     text-align: center;
-    gap: 10px;
+    gap: 5px;
     justify-content: center;
 }
 
@@ -15,11 +15,10 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    gap: 5px;
 }
 
 .message h1{
-    font-size: 20px;
+    font-size: 16px;
     color: #ffbb33;
     
 }
@@ -28,7 +27,7 @@
     display: flex;
     list-style: none;
     gap: 20px;
-    font-size: 20px;
+    font-size: 16px;
     cursor: pointer;
     justify-content: center;
 }
