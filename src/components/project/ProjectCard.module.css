@@ -92,7 +92,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 1.5em;
+    margin-top: 1.2em;
 }
 
 .project_card_actions a,
@@ -113,7 +113,7 @@
 }
 
 .project_card_actions button:hover {
-    color: #f70000
+    color: #f70000;
 }
 
 .project_card_actions svg {
