@@ -10,9 +10,8 @@
 
 .home_container h1{
     font-size: 50px;
-    margin-bottom: .5em;
     padding: .5em;
-    box-shadow: -10px 10px 20px #ffbb333f;
+    box-shadow: 0px 0px 20px #ffbb333f;
     border-radius: 20px;
 }
 
@@ -22,7 +21,7 @@
 
 .home_container p{
     margin-bottom: 2em;
-    margin-top: 1em;
+    margin-top: 2em;
     font-size: 20px;
 }
 
@@ -34,6 +33,6 @@
 
 .home_container img{
     width: 600px;
-    margin: 2em 0;
+    margin: 1em 0;
 }
 
