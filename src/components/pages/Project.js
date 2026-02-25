@@ -222,6 +222,9 @@ function Project() {
                         <p>
                             <span>Total Utilizado:</span> {formatCurrency(project.cost)}
                         </p>
+                        <p>
+                            <span>Total Disponível:</span> {formatCurrency((project.budget)-(project.cost))}
+                        </p>
                     </div>
                 ) : (
                     <div className={styles.form_container}>

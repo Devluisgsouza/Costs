@@ -1,5 +1,42 @@
 {
-  "projects": [],
+  "projects": [
+    {
+      "id": "3bd8",
+      "name": "Viajar para San Andres",
+      "budget": "10000",
+      "category": {
+        "id": "4",
+        "name": "Planejamento"
+      },
+      "cost": 9300,
+      "services": [
+        {
+          "name": "Comprar passagem",
+          "cost": "5000",
+          "description": "Comprar passagem de Guarulhos pra San Andres",
+          "id": "9b74c4ee-655f-4165-b6e5-92850ca7da3b"
+        },
+        {
+          "name": "Alugar casa/hotel",
+          "cost": "1800",
+          "description": "procurar casa ou hotel para estadia",
+          "id": "fb4095a1-8bb4-4155-8485-e595d7a516ab"
+        },
+        {
+          "name": "Dinheiro para gastos",
+          "cost": "1000",
+          "description": "levar dinheiro em dollar para gastos dia a dia",
+          "id": "87e21ced-78a2-4ee5-974f-c080598f4876"
+        },
+        {
+          "name": "Passeios e Carro",
+          "cost": "1500",
+          "description": "Contratar passeios e locomoção",
+          "id": "84f33e08-c306-4636-87af-ce1b51e9456c"
+        }
+      ]
+    }
+  ],
   "categories": [
     {
       "id": "1",
