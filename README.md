@@ -32,9 +32,10 @@ O desenvolvimento foi feito com **React / TypeScript / Node.js**.
 
 ## 🛠️ Tecnologias Utilizadas  
 
-🔹 [![React](https://img.shields.io/badge/React-darkblue)](https://react.dev/)  
-🔹 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6)](https://www.typescriptlang.org/)  
-🔹 [![Node](https://img.shields.io/badge/Node.js-green)](https://nodejs.org/pt)   
+- [![React](https://img.shields.io/badge/React-darkblue)](https://react.dev/)  
+- [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6)](https://www.typescriptlang.org/)
+- [![JavaScript](https://img.shields.io/badge/JavaScript-yellow)](https://aws.amazon.com/pt/what-is/javascript/)
+- [![Node](https://img.shields.io/badge/Node.js-green)](https://nodejs.org/pt)
 
 ## ☑️ Como Utilizar
 - Clone o repositŕorio
@@ -79,5 +80,6 @@ npm start
   <br><br>
   <img src='https://github.com/Devluisgsouza/Costs/blob/main/src/img/NewServiccess.png'>
 </div>
+
 
 
