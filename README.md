@@ -40,7 +40,11 @@ O desenvolvimento foi feito com **React / TypeScript / Node.js**.
 ## ☑️ Como Utilizar
 - Clone o repositŕorio
 ```bash
-git clone https://github.com/Devlgsouza/Costs.git 
+git clone https://github.com/Devluisgsouza/Costs.git 
+```
+- Entre no diretório
+```bash
+cd Costs 
 ```
 - Inicie o Backend
 ```bash
@@ -80,6 +84,7 @@ npm start
   <br><br>
   <img src='https://github.com/Devluisgsouza/Costs/blob/main/src/img/NewServiccess.png'>
 </div>
+
 
 
 
