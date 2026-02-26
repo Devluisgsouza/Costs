@@ -24,7 +24,7 @@ O **COSTS** é um site para gerenciar os gastos de qualquer tipo de projeto.
 🔹 Usuário adiciona os serviços do projeto.  
 🔹 Usuáario gerencia seu saldo e gastos do projeto.  
 
-O desenvolvimento foi feito com **React + TypeScript**.
+O desenvolvimento foi feito com **React / TypeScript / Node.js**.
 
 > 🎯 Motivação: A ideia surgiu através de um estudo para melhorar os conhecimentos em React.
 
