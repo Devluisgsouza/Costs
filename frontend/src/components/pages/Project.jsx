@@ -10,6 +10,8 @@ import ServiceForm from '../service/ServiceForm'
 import ServiceCard from '../service/ServiceCard'
 import ServiceModal from '../service/ServiceModal'
 
+const API_URL = process.env.REACT_APP_API_URL
+
 function Project() {
     
     const { id } = useParams()
@@ -24,7 +26,7 @@ function Project() {
 
     useEffect(() => {
         setTimeout(() => {
-            fetch(`http://localhost:5000/projects/${id}`, {
+            fetch(`${API_URL}/projects/${id}`, {
                 method: "GET",
                 headers: {
                     'Content-Type': 'application/json',
@@ -103,7 +105,7 @@ function Project() {
 
         updatedProject.cost = newCost
 
-        fetch(`http://localhost:5000/projects/${updatedProject.id}`, {
+        fetch(`${API_URL}/projects/${updatedProject.id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
@@ -139,10 +141,9 @@ function Project() {
             cost: currentCost - serviceCost
         }
 
-        // UI imediata
         setProject(projectUpdated)
 
-        fetch(`http://localhost:5000/projects/${project.id}`, {
+        fetch(`${API_URL}/projects/${project.id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
@@ -181,7 +182,7 @@ function Project() {
             return false
         }
 
-        fetch(`http://localhost:5000/projects/${project.id}`, {
+        fetch(`${API_URL}/projects/${project.id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
@@ -281,7 +282,6 @@ function Project() {
                 )}
             </div>
 
-            {/* MODAL */}
             {selectedService && (
                 <ServiceModal 
                     service={selectedService}

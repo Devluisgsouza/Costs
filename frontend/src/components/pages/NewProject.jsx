@@ -2,18 +2,18 @@ import ProjectForm from '../project/ProjectForm';
 import styles from './NewProject.module.css';
 import { useNavigate } from 'react-router-dom';
 
+const API_URL = process.env.REACT_APP_API_URL
 
 function NewProject() {
 
     const navigate = useNavigate()
 
-    function createPost(project, id) {
+    function createPost(project) {
 
-        // initialize cost and services
         project.cost = 0
         project.services = []
 
-        fetch("http://localhost:5000/projects", {
+        fetch(`${API_URL}/projects`, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
@@ -23,12 +23,10 @@ function NewProject() {
             .then((resp) => resp.json())
             .then((data) => {
                 console.log(data)
-                //redirect
                 navigate(`/project/${data.id}`, { state: { message: 'Projeto criado com sucesso!' } })
             })
             .catch((err) => console.log(err))
     }
-
 
     return(
         <div className={styles.newproject_container}>

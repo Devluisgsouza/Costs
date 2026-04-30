@@ -2,10 +2,9 @@ import Input from '../form/Input'
 import Select from '../form/Select'
 import SubmitButton from '../form/SubmitButton'
 import styles from './ProjectForm.module.css'
-
 import { useState, useEffect } from 'react'
 
-
+const API_URL = process.env.REACT_APP_API_URL
 
 function ProjectForm({ handleSubmit, btnText, projectData }) {
 
@@ -13,14 +12,12 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
     const [project, setProject] = useState(projectData || {})
     const [errors, setErrors] = useState({})
 
-
-
     useEffect(() => {
-        fetch("http://localhost:5000/categories", {
-        method: "GET",
-        headers: {
-            'Content-Type': 'application/json'
-        }
+        fetch(`${API_URL}/categories`, {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json'
+            }
         })
         .then((resp) => resp.json())
         .then((data) => {
@@ -29,44 +26,42 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
         .catch(err => console.log(err))
     }, [])
 
-
     const submit = (e) => {
-    e.preventDefault()
+        e.preventDefault()
 
-    let newErrors = {}
+        let newErrors = {}
 
-    if (!project.name || project.name.trim() === "") {
-        newErrors.name = "O nome do projeto é obrigatório"
+        if (!project.name || project.name.trim() === "") {
+            newErrors.name = "O nome do projeto é obrigatório"
+        }
+
+        if (!project.budget || project.budget <= 0) {
+            newErrors.budget = "O orçamento deve ser maior que zero"
+        }
+
+        if (!project.category || !project.category.id) {
+            newErrors.category = "Selecione uma categoria"
+        }
+
+        if (Object.keys(newErrors).length > 0) {
+            setErrors(newErrors)
+            return
+        }
+
+        setErrors({})
+        handleSubmit(project)
     }
-
-    if (!project.budget || project.budget <= 0) {
-        newErrors.budget = "O orçamento deve ser maior que zero"
-    }
-
-    if (!project.category || !project.category.id) {
-        newErrors.category = "Selecione uma categoria"
-    }
-
-    if (Object.keys(newErrors).length > 0) {
-        setErrors(newErrors)
-        return
-    }
-
-    setErrors({})
-    handleSubmit(project)
-    }
-
 
     function handleChange(e) {
-        setProject({ ...project, [e.target.name] : e.target.value})
+        setProject({ ...project, [e.target.name]: e.target.value })
     }
 
-     function handleCategory(e) {
+    function handleCategory(e) {
         setProject({ ...project, category: {
             id: e.target.value,
             name: e.target.options[e.target.selectedIndex].text,
         }})
-    }   
+    }
 
     return(
         <form onSubmit={submit} className={styles.form}>
@@ -76,10 +71,9 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
                 name="name"
                 placeholder="Insira o nome do projeto" 
                 handleOnChange={handleChange}
-                value={project.name ? project.name: ''}
+                value={project.name ? project.name : ''}
             />
             {errors.name && <p className={styles.error}>{errors.name}</p>}
-
 
             <Input 
                 type="number"
@@ -87,10 +81,9 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
                 name="budget"
                 placeholder="Insira o orçamento total" 
                 handleOnChange={handleChange}
-                value={project.budget ? project.budget: ''}
+                value={project.budget ? project.budget : ''}
             />
             {errors.budget && <p className={styles.error}>{errors.budget}</p>}
-
 
             <Select 
                 name="category_id"
@@ -101,13 +94,9 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
             />
             {errors.category && <p className={styles.error}>{errors.category}</p>}
 
-            <SubmitButton 
-                text={btnText}
-            />
+            <SubmitButton text={btnText} />
         </form>
     )
 }
-
-
 
 export default ProjectForm
