@@ -116,6 +116,10 @@
     color: #f70000;
 }
 
+.project_card_actions button span:hover {
+    color: #5bf700;
+}
+
 .project_card_actions svg {
     margin-right: .2em;
 }

@@ -24,7 +24,7 @@ O **COSTS** é um site para gerenciar os gastos de qualquer tipo de projeto.
 🔹 Usuário adiciona os serviços do projeto.  
 🔹 Usuáario gerencia seu saldo e gastos do projeto.  
 
-O desenvolvimento foi feito com **React / TypeScript / Node.js**.
+O desenvolvimento foi feito com **React / JavaScript / Node.js**.
 
 > 🎯 Motivação: A ideia surgiu através de um estudo para melhorar os conhecimentos em React.
 
@@ -33,18 +33,31 @@ O desenvolvimento foi feito com **React / TypeScript / Node.js**.
 ## 🛠️ Tecnologias Utilizadas  
 
 - [![React](https://img.shields.io/badge/React-darkblue)](https://react.dev/)  
-- [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6)](https://www.typescriptlang.org/)
 - [![JavaScript](https://img.shields.io/badge/JavaScript-yellow)](https://aws.amazon.com/pt/what-is/javascript/)
 - [![Node](https://img.shields.io/badge/Node.js-green)](https://nodejs.org/pt)
 
 ## ☑️ Como Utilizar
-- Clone o repositŕorio
+- Instale o [Node.js](https://nodejs.org/en/download)
+
+- Clone o repositório
 ```bash
 git clone https://github.com/Devluisgsouza/Costs.git 
 ```
 - Entre no diretório
 ```bash
 cd Costs 
+```
+- Instale o react
+```bash
+npm install react
+```
+- Instale o json-server
+```bash
+npm install json-server
+```
+- Instale o react-router-dom
+```bash
+npm install react-router-dom
 ```
 - Inicie o Backend
 ```bash
@@ -80,10 +93,12 @@ npm start
   <br><br>
   <img src='https://github.com/Devluisgsouza/Costs/blob/main/src/img/NewProject.png'>
   <br><br>
-  <h1>Página de criar aerviços</h1>
+  <h1>Página de criar serviços</h1>
   <br><br>
   <img src='https://github.com/Devluisgsouza/Costs/blob/main/src/img/NewServiccess.png'>
 </div>
+
+
 
 
 

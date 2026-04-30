@@ -45,16 +45,31 @@
     margin: 10px;
 }
 
+.close_btn p{
+    font-size: 1em;
+    position: absolute;
+    top: -8px;
+    right: -3px;
+    font-weight: bold;
+}
+
 .close_btn {
     position: absolute;
     top: 12px;
     right: 12px;
-    background: transparent;
-    border: none;
-    color: #bfff3e;
-    font-size: 1.6rem;
+    height: 2em;
+    width: 2em;
     cursor: pointer;
+    border: solid 2px #ffff;
+    border-radius: 100%;
+    background: transparent;
 }
+
+.close_btn:hover {
+    background-color: #ff3e3e;
+    border-color: #000;
+}
+
 
 .description {
     margin-top: 0.5rem;

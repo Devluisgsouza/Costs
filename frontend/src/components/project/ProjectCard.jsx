@@ -1,5 +1,5 @@
 import styles from './ProjectCard.module.css'
-import { BsPencil, BsFillTrashFill } from 'react-icons/bs'
+import { BsEyeFill, BsFillTrashFill } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 
 
@@ -40,7 +40,7 @@ function ProjectCard({id, name, budget, category, handleRemove}) {
             </div>
             <div className={styles.project_card_actions}>
                 <Link to={`/project/${id}`}>
-                    <BsPencil /> Editar
+                    <BsEyeFill /> Visualizar
                 </Link>
                 <button onClick={remove}>
                     <BsFillTrashFill /> Excluir

@@ -32,7 +32,7 @@ function ServiceCard({ id, name, cost, description, handleRemove, handleView }) 
             <div className={styles.project_card_actions}>
                 <button onClick={view}>
                     <BsEyeFill />
-                    Visualizar
+                    <span>Visualizar</span>
                 </button>
 
                 <button onClick={remove}>

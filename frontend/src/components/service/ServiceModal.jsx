@@ -16,7 +16,7 @@ function ServiceModal({ service, onClose }) {
         <div className={styles.overlay}>
             <div className={styles.modal}>
                 <button className={styles.close_btn} onClick={onClose}>
-                    <BsXCircle />
+                    <p>X</p>
                 </button>
 
                 <h2>{service.name}</h2>

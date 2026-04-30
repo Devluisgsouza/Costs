@@ -7,7 +7,7 @@ function NewProject() {
 
     const navigate = useNavigate()
 
-    function createPost(project) {
+    function createPost(project, id) {
 
         // initialize cost and services
         project.cost = 0
@@ -24,7 +24,7 @@ function NewProject() {
             .then((data) => {
                 console.log(data)
                 //redirect
-                navigate('/projects', { state: { message: 'Projeto criado com sucesso!' } })
+                navigate(`/project/${data.id}`, { state: { message: 'Projeto criado com sucesso!' } })
             })
             .catch((err) => console.log(err))
     }
