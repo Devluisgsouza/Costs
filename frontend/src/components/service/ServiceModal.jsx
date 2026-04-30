@@ -1,5 +1,4 @@
 import styles from './ServiceModal.module.css'
-import { BsXCircle } from 'react-icons/bs'
 
 function ServiceModal({ service, onClose }) {
 
