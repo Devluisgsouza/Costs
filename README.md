@@ -1,63 +1,73 @@
 <h1 align="center">
-  <img src='https://github.com/Devluisgsouza/Costs/blob/main/frontend/src/img/costs_logo.png' width="200">
+  <img src="frontend/public/favicon.svg" width="110" alt="Costs">
   <br><br>
   COSTS
 </h1>
 
 <p align="center">
-  <strong>Gerencie seus projetos com eficiência e clareza.</strong>
+  <strong>Gerencie os custos dos seus projetos com eficiência e clareza.</strong>
 </p>
 
 <p align="center">
   <a href="https://costsprojects.netlify.app/" target="_blank">
-    <img src="https://img.shields.io/badge/🌐%20Acessar%20o%20Site-costsprojects.netlify.app-blue?style=for-the-badge" alt="Site">
+    <img src="https://img.shields.io/badge/🌐%20Acessar%20o%20Site-costsprojects.netlify.app-6366F1?style=for-the-badge" alt="Site">
   </a>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/status-em%20desenvolvimento-yellow?style=flat-square" />
+  <img src="https://img.shields.io/badge/status-ativo-success?style=flat-square" />
   <img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" />
-  <img src="https://img.shields.io/badge/fullstack-React%20%2B%20Node.js%20%2B%20MongoDB-informational?style=flat-square" />
+  <img src="https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=white" />
+  <img src="https://img.shields.io/badge/persistência-localStorage-F59E0B?style=flat-square" />
 </p>
 
 ---
 
 ## 📖 Sobre o Projeto
 
-**COSTS** é uma aplicação fullstack para gerenciamento de gastos em projetos. Com ela, você pode criar projetos, adicionar serviços e acompanhar o orçamento em tempo real — tudo em uma interface simples e intuitiva.
+**COSTS** é uma aplicação para gerenciamento de custos de projetos. Crie projetos com um
+orçamento, adicione serviços com seus respectivos custos e acompanhe em tempo real quanto
+já foi gasto e quanto ainda está disponível.
 
-- Crie projetos e defina um orçamento máximo.
-- Adicione serviços com seus respectivos custos.
-- Acompanhe o saldo disponível e os gastos de cada projeto.
+A aplicação é uma **SPA React** que roda inteiramente no navegador: cada usuário tem seus
+próprios dados isolados, salvos no **localStorage** — sem necessidade de servidor ou banco
+de dados para usar.
 
-> 🎯 **Motivação:** Projeto desenvolvido para aprofundar os conhecimentos em React, Node.js, MongoDB e deploy em nuvem.
+### ✨ Funcionalidades
+
+- 🔐 **Login por usuário** (usuário + senha) — cada pessoa vê apenas os seus projetos.
+- 🗂️ **Projetos** — criar, editar e excluir, com orçamento e categoria.
+- 🧾 **Serviços** — adicionar, visualizar e remover serviços de cada projeto.
+- 📊 **Controle de orçamento** — barra de progresso com porcentagem e bloqueio quando o
+  custo ultrapassaria o orçamento.
+- 💾 **Persistência local** — os dados ficam salvos por usuário; o logout preserva os dados.
+- 🎨 **Interface dark** — design responsivo com componentes próprios e notificações (toasts).
+
+> 🎯 **Motivação:** projeto desenvolvido para aprofundar conhecimentos em React, gerenciamento
+> de estado e construção de interfaces.
 
 ---
 
 ## 🚀 Deploy
 
-| Serviço | Plataforma | Link |
-|--------|-----------|------|
-| Frontend | Netlify | [costsprojects.netlify.app](https://costsprojects.netlify.app/) |
-| Backend | Render | API em produção via Render |
+| Serviço  | Plataforma | Link                                                          |
+| -------- | ---------- | ------------------------------------------------------------- |
+| Frontend | Netlify    | [costsprojects.netlify.app](https://costsprojects.netlify.app/) |
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Tecnologias
 
-### Frontend
-- [React](https://react.dev/) — Biblioteca para construção de interfaces
-- [React Router DOM](https://reactrouter.com/) — Gerenciamento de rotas
-- [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript) — Linguagem principal
+- [React](https://react.dev/) — biblioteca para construção de interfaces
+- [React Router DOM](https://reactrouter.com/) — gerenciamento de rotas
+- [CSS Modules](https://github.com/css-modules/css-modules) — estilização por componente
+- [React Icons](https://react-icons.github.io/react-icons/) — ícones
+- [uuid](https://github.com/uuidjs/uuid) — geração de identificadores
+- **localStorage** — persistência dos dados por usuário (sem backend)
 
-### Backend
-- [Node.js](https://nodejs.org/pt) — Ambiente de execução server-side
-- [Express](https://expressjs.com/) — Framework para criação da API REST
-- [MongoDB](https://www.mongodb.com/) — Banco de dados NoSQL em nuvem
-
-### Infraestrutura
-- [Netlify](https://www.netlify.com/) — Deploy e hospedagem do frontend
-- [Render](https://render.com/) — Deploy e hospedagem do backend
+> 💡 O diretório `backend/` contém uma API **legada** (Node.js + Express + MongoDB) usada em
+> versões anteriores. Após a migração da persistência para o `localStorage`, ela **não é mais
+> necessária** para executar o app — ficou no repositório apenas como referência.
 
 ---
 
@@ -66,88 +76,31 @@
 ### Pré-requisitos
 
 - [Node.js](https://nodejs.org/en/download) instalado na máquina
-- Instância do MongoDB configurada (local ou [MongoDB Atlas](https://www.mongodb.com/atlas))
 
 ### Passo a passo
 
 1. **Clone o repositório**
-```bash
-git clone https://github.com/Devluisgsouza/Costs.git
-```
+   ```bash
+   git clone https://github.com/Devluisgsouza/Costs.git
+   ```
 
-2. **Entre no diretório do projeto**
-```bash
-cd Costs
-```
+2. **Entre na pasta do frontend**
+   ```bash
+   cd Costs/frontend
+   ```
 
-3. **Instale as dependências do frontend**
-```bash
-cd frontend
-npm install
-```
+3. **Instale as dependências**
+   ```bash
+   npm install
+   ```
 
-4. **Instale as dependências do backend**
-```bash
-cd ../backend
-npm install
-```
+4. **Inicie a aplicação**
+   ```bash
+   npm start
+   ```
 
-5. **Configure as variáveis de ambiente**
-
-Crie um arquivo `.env` na pasta `backend` com as seguintes variáveis:
-```env
-MONGO_URI=sua_string_de_conexao_mongodb
-PORT=5000
-```
-
-6. **Inicie o backend**
-```bash
-npm start
-```
-
-7. **Inicie o frontend** (em outro terminal)
-```bash
-cd ../frontend
-npm start
-```
-
-A aplicação estará disponível em `http://localhost:3000`.
-
----
-
-## 👁️ Preview
-
-<div align="center">
-
-### 🏠 Home Page
-<img src='https://github.com/Devluisgsouza/Costs/blob/main/frontend/src/img/home_costs.png' width="800">
-
----
-
-### 📋 Página de Projetos
-<img src='https://github.com/Devluisgsouza/Costs/blob/main/frontend/src/img/projects_costs.png' width="800">
-
----
-
-### 🏢 Página da Empresa
-<img src='https://github.com/Devluisgsouza/Costs/blob/main/frontend/src/img/company_costs.png' width="800">
-
----
-
-### 🔍 Detalhes do Projeto
-<img src='https://github.com/Devluisgsouza/Costs/blob/main/frontend/src/img/Project_details.png' width="800">
-
----
-
-### ➕ Criar Projeto
-<img src='https://github.com/Devluisgsouza/Costs/blob/main/frontend/src/img/NewProject.png' width="800">
-
----
-
-### 🔧 Criar Serviços
-<img src='https://github.com/Devluisgsouza/Costs/blob/main/frontend/src/img/NewServiccess.png' width="800">
-
-</div>
+A aplicação estará disponível em `http://localhost:3000`. Basta informar um usuário e senha
+na tela inicial — a conta é criada automaticamente no primeiro acesso.
 
 ---
 
@@ -155,16 +108,19 @@ A aplicação estará disponível em `http://localhost:3000`.
 
 ```
 Costs/
-├── frontend/          # Aplicação React
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   └── img/
-│   └── package.json
-├── backend/           # API Node.js + MongoDB
-│   ├── models/
-│   ├── routes/
-│   └── package.json
+├── frontend/                 # Aplicação React (SPA)
+│   ├── public/               # index.html, favicon.svg, _redirects
+│   └── src/
+│       ├── components/
+│       │   ├── form/         # Input, Select
+│       │   ├── layout/       # Navbar, Footer, Container, UserBadge...
+│       │   ├── project/      # ProjectCard, ProjectForm
+│       │   ├── service/      # ServiceCard, ServiceForm, ServiceModal
+│       │   └── ui/           # Button, Card, Badge, ProgressBar, Toast...
+│       ├── context/          # SessionContext, ToastContext
+│       ├── lib/              # db (localStorage) e formatação
+│       └── pages/            # LoginScreen, Home, Projects, Project...
+├── backend/                  # API legada (Node.js + MongoDB) — opcional
 └── README.md
 ```
 
@@ -191,4 +147,3 @@ Este projeto está sob a licença MIT. Consulte o arquivo [LICENSE](./LICENSE) p
 <p align="center">
   Desenvolvido por <a href="https://github.com/Devluisgsouza">Luis Souza</a> 🚀
 </p>
-
