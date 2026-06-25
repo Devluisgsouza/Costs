@@ -1,40 +1,37 @@
-import ProjectForm from '../project/ProjectForm';
-import styles from './NewProject.module.css';
-import { useNavigate } from 'react-router-dom';
-
-const API_URL = process.env.REACT_APP_API_URL
+import styles from './NewProject.module.css'
+import { useNavigate } from 'react-router-dom'
+import ProjectForm from '../components/project/ProjectForm'
+import Card from '../components/ui/Card'
+import { useUserSession } from '../context/SessionContext'
+import { useToast } from '../context/ToastContext'
+import { createProject } from '../lib/db'
 
 function NewProject() {
+  const navigate = useNavigate()
+  const { user } = useUserSession()
+  const { notify } = useToast()
 
-    const navigate = useNavigate()
+  function createPost(project) {
+    const created = createProject(user.id, {
+      ...project,
+      budget: Number(project.budget),
+      cost: 0,
+      services: [],
+    })
+    notify('Projeto criado com sucesso!', 'success')
+    navigate(`/project/${created.id}`)
+  }
 
-    function createPost(project) {
+  return (
+    <div className={styles.page}>
+      <h1 className={styles.title}>Criar Projeto</h1>
+      <p className={styles.subtitle}>Crie o seu projeto para depois adicionar os serviços.</p>
 
-        project.cost = 0
-        project.services = []
-
-        fetch(`${API_URL}/projects`, {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json',
-            },
-            body: JSON.stringify(project),
-        })
-            .then((resp) => resp.json())
-            .then((data) => {
-                console.log(data)
-                navigate(`/project/${data.id}`, { state: { message: 'Projeto criado com sucesso!' } })
-            })
-            .catch((err) => console.log(err))
-    }
-
-    return(
-        <div className={styles.newproject_container}>
-            <h1>Criar Projeto</h1>
-            <p>Crie o seu projeto para depois adicionar os serviços</p>
-            <ProjectForm handleSubmit={createPost} btnText="Criar projeto"/>
-        </div>
-    )
+      <Card className={styles.formCard}>
+        <ProjectForm handleSubmit={createPost} btnText="Criar projeto" />
+      </Card>
+    </div>
+  )
 }
 
 export default NewProject

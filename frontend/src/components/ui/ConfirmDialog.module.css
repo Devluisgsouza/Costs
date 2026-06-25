@@ -1,0 +1,57 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  background: rgba(10, 15, 30, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: fadeIn 200ms ease;
+}
+
+.dialog {
+  width: 100%;
+  max-width: 400px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  text-align: center;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  animation: fadeSlideUp 240ms ease;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 16px;
+  font-size: 24px;
+  color: var(--accent-danger);
+  background: rgba(239, 68, 68, 0.12);
+  border-radius: 50%;
+}
+
+.title {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.message {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 24px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}

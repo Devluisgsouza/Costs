@@ -1,33 +1,55 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Home from './components/pages/Home'
-import Contact from './components/pages/Contact'
-import Company from './components/pages/Company'
-import NewProject from './components/pages/NewProject'
 
-import Container from './components/layout/Container'
+import { SessionProvider, useUserSession } from './context/SessionContext'
+import { ToastProvider } from './context/ToastContext'
+
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
-import Projects from './components/pages/Projects'
-import Project from './components/pages/Project'
+import Container from './components/layout/Container'
 import ScrollTop from './components/layout/ScrollTop'
 
-function App() {
+import LoginScreen from './pages/LoginScreen'
+import Home from './pages/Home'
+import Projects from './pages/Projects'
+import Project from './pages/Project'
+import NewProject from './pages/NewProject'
+import Company from './pages/Company'
+import Contact from './pages/Contact'
+
+function AuthenticatedApp() {
   return (
     <Router>
       <ScrollTop />
-      <Navbar />
-      <Container customClass="min-height">
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/company" element={<Company />} />
-          <Route path="/newproject" element={<NewProject />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/project/:id" element={<Project />} />
-        </Routes>
-      </Container>
-      <Footer />
+      <div className="app-shell">
+        <Navbar />
+        <Container customClass="min-height">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/project/:id" element={<Project />} />
+            <Route path="/newproject" element={<NewProject />} />
+            <Route path="/company" element={<Company />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </Container>
+        <Footer />
+      </div>
     </Router>
+  )
+}
+
+function Root() {
+  const { isAuthenticated } = useUserSession()
+  return isAuthenticated ? <AuthenticatedApp /> : <LoginScreen />
+}
+
+function App() {
+  return (
+    <SessionProvider>
+      <ToastProvider>
+        <Root />
+      </ToastProvider>
+    </SessionProvider>
   )
 }
 

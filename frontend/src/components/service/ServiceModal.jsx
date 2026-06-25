@@ -1,32 +1,29 @@
 import styles from './ServiceModal.module.css'
+import { BsXLg } from 'react-icons/bs'
+import CurrencyDisplay from '../ui/CurrencyDisplay'
 
 function ServiceModal({ service, onClose }) {
+  if (!service) return null
 
-    if (!service) return null
+  return (
+    <div className={styles.overlay} onClick={onClose}>
+      <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+        <button className={styles.close_btn} onClick={onClose} aria-label="Fechar">
+          <BsXLg />
+        </button>
 
-    const formatCurrency = (value) => {
-        return Number(value).toLocaleString('pt-BR', {
-            style: 'currency',
-            currency: 'BRL',
-        })
-    }
+        <h2 className={styles.title}>{service.name}</h2>
 
-    return (
-        <div className={styles.overlay}>
-            <div className={styles.modal}>
-                <button className={styles.close_btn} onClick={onClose}>
-                    <p>X</p>
-                </button>
-
-                <h2>{service.name}</h2>
-
-                <p><strong>Custo: </strong> {formatCurrency(service.cost)}</p>
-
-                <p><strong>Descrição:</strong></p>
-                <p className={styles.description}>{service.description}</p>
-            </div>
+        <div className={styles.cost}>
+          <span className={styles.label}>Custo</span>
+          <CurrencyDisplay value={service.cost} size="lg" />
         </div>
-    )
+
+        <span className={styles.label}>Descrição</span>
+        <p className={styles.description}>{service.description}</p>
+      </div>
+    </div>
+  )
 }
 
 export default ServiceModal

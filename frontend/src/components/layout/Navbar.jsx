@@ -1,66 +1,51 @@
 import { NavLink } from 'react-router-dom'
-import Container from './Container'
-
 import styles from './Navbar.module.css'
-import logo from '../../img/costs_logo.png'
+import UserBadge from './UserBadge'
+import { BsBoxes } from 'react-icons/bs'
 
 function Navbar() {
-    return(
-        <nav className={styles.navbar}>
-            <Container>
-                <NavLink className={styles.imglogo} to="/">
-                    <img src={logo} alt="Costs" />
-                    <h1>COSTS</h1>
-                </NavLink>
+  const linkClass = ({ isActive }) =>
+    isActive ? `${styles.link} ${styles.active}` : styles.link
 
-                <ul className={styles.list}>
-                    <li className={styles.item}>
-                        <NavLink 
-                          to="/" 
-                          className={({ isActive }) => 
-                            isActive ? `${styles.link} ${styles.active}` : styles.link
-                          }
-                        >
-                          Home
-                        </NavLink>
-                    </li>
+  return (
+    <nav className={styles.navbar}>
+      <div className={styles.inner}>
+        <NavLink className={styles.logo} to="/">
+          <span className={styles.logoIcon}>
+            <BsBoxes />
+          </span>
+          <span className={styles.logoText}>
+            Costs<span className={styles.dot}>.</span>
+          </span>
+        </NavLink>
 
-                    <li className={styles.item}>
-                        <NavLink 
-                          to="/projects"
-                          className={({ isActive }) => 
-                            isActive ? `${styles.link} ${styles.active}` : styles.link
-                          }
-                        >
-                          Projetos
-                        </NavLink>
-                    </li>
+        <ul className={styles.list}>
+          <li>
+            <NavLink to="/" className={linkClass} end>
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/projects" className={linkClass}>
+              Projetos
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/company" className={linkClass}>
+              Empresa
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/contact" className={linkClass}>
+              Contato
+            </NavLink>
+          </li>
+        </ul>
 
-                    <li className={styles.item}>
-                        <NavLink 
-                          to="/company"
-                          className={({ isActive }) => 
-                            isActive ? `${styles.link} ${styles.active}` : styles.link
-                          }
-                        >
-                          Empresa
-                        </NavLink>
-                    </li>
-
-                    <li className={styles.item}>
-                        <NavLink 
-                          to="/contact"
-                          className={({ isActive }) => 
-                            isActive ? `${styles.link} ${styles.active}` : styles.link
-                          }
-                        >
-                          Contato
-                        </NavLink>
-                    </li>
-                </ul>
-            </Container>
-        </nav>
-    )
+        <UserBadge />
+      </div>
+    </nav>
+  )
 }
 
 export default Navbar

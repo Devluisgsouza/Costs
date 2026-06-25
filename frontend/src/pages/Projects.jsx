@@ -1,89 +1,102 @@
 import styles from './Projects.module.css'
-import Message from "../layout/Message"
-import { useLocation } from 'react-router-dom'
-import LinkButton from '../layout/LinkButton'
-import ProjectCard from '../project/ProjectCard'
 import { useState, useEffect } from 'react'
-import Loading from '../layout/Loading'
+import { Link } from 'react-router-dom'
+import { BsPlusLg, BsFolderPlus } from 'react-icons/bs'
 
-const API_URL = process.env.REACT_APP_API_URL
+import ProjectCard from '../components/project/ProjectCard'
+import Loading from '../components/layout/Loading'
+import Button from '../components/ui/Button'
+import ConfirmDialog from '../components/ui/ConfirmDialog'
+import { useUserSession } from '../context/SessionContext'
+import { useToast } from '../context/ToastContext'
+import { getProjects, deleteProject } from '../lib/db'
 
 function Projects() {
+  const { user } = useUserSession()
+  const { notify } = useToast()
 
-    const [projects, setProjects] = useState([])
-    const [removeLoading, setRemoveLoading] = useState(false)
-    const [projectMessage, setProjectMessage] = useState('')
+  const [projects, setProjects] = useState([])
+  const [loaded, setLoaded] = useState(false)
+  const [toRemove, setToRemove] = useState(null)
 
-    const location = useLocation()
-    let message = ''
-    if(location.state) {
-        message = location.state.message
-    }
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setProjects(getProjects(user.id))
+      setLoaded(true)
+    }, 300)
+    return () => clearTimeout(timer)
+  }, [user.id])
 
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
+  function confirmRemove() {
+    if (!toRemove) return
+    deleteProject(user.id, toRemove.id)
+    setProjects((prev) => prev.filter((p) => p.id !== toRemove.id))
+    notify('Projeto removido com sucesso!', 'success')
+    setToRemove(null)
+  }
 
-    useEffect(() => {
-        setTimeout(() => {
-            fetch(`${API_URL}/projects`, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-            })
-            .then((resp) => resp.json())
-            .then((data) => {
-                setProjects(data)
-                setRemoveLoading(true)
-            })
-            .catch((err) => console.log(err))
-        }, 500)
-    }, [])
-
-    function removeProject(id) {
-        fetch(`${API_URL}/projects/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-        })
-        .then((resp) => resp.json())
-        .then(() => {
-            setProjects(projects.filter((project) => project.id !== id))
-            setProjectMessage('Projeto removido com sucesso!')
-        })
-        .catch((err) => console.log(err))
-    }
-
-    return (
-        <div className={styles.container_projects}>
-            <div className={styles.container_message}>
-                {message && <Message type="success" msg={message}/>}     
-                {projectMessage && <Message type="success" msg={projectMessage}/>}           
-            </div>
-            <h1>MEUS PROJETOS</h1>
-            <section>
-                {projects.length > 0 &&
-                    projects.map((project) => (
-                        <ProjectCard 
-                            id={project.id}
-                            name={project.name}
-                            budget={project.budget}
-                            category={project.category.name}
-                            key={project.id}
-                            handleRemove={removeProject}
-                        />
-                    ))
-                }
-                {!removeLoading && <Loading />}
-                {removeLoading && projects.length === 0 && (
-                    <p>Não há projetos cadastrados!</p>
-                )}
-            </section>
-            <LinkButton to="/newproject" text="Criar Novo Projeto"/>
+  return (
+    <div className={styles.page}>
+      <div className={styles.head}>
+        <div>
+          <h1 className={styles.title}>Meus Projetos</h1>
+          <p className={styles.subtitle}>
+            {projects.length > 0
+              ? `${projects.length} projeto${projects.length > 1 ? 's' : ''} cadastrado${
+                  projects.length > 1 ? 's' : ''
+                }`
+              : 'Crie e acompanhe os custos dos seus projetos'}
+          </p>
         </div>
-    )
+        <Link to="/newproject">
+          <Button>
+            <BsPlusLg /> Novo Projeto
+          </Button>
+        </Link>
+      </div>
+
+      {!loaded && <Loading />}
+
+      {loaded && projects.length === 0 && (
+        <div className={styles.empty}>
+          <span className={styles.emptyIcon}>
+            <BsFolderPlus />
+          </span>
+          <h2>Nenhum projeto ainda</h2>
+          <p>Comece criando seu primeiro projeto para controlar seus custos.</p>
+          <Link to="/newproject">
+            <Button size="lg">
+              <BsPlusLg /> Criar primeiro projeto
+            </Button>
+          </Link>
+        </div>
+      )}
+
+      {loaded && projects.length > 0 && (
+        <section className={styles.grid}>
+          {projects.map((project) => (
+            <ProjectCard
+              key={project.id}
+              id={project.id}
+              name={project.name}
+              budget={project.budget}
+              category={project.category?.name}
+              cost={project.cost}
+              onRequestRemove={(id, name) => setToRemove({ id, name })}
+            />
+          ))}
+        </section>
+      )}
+
+      <ConfirmDialog
+        open={!!toRemove}
+        title="Excluir projeto"
+        message={`Tem certeza que deseja excluir o projeto "${toRemove?.name}"? Esta ação não pode ser desfeita.`}
+        onConfirm={confirmRemove}
+        onCancel={() => setToRemove(null)}
+      />
+    </div>
+  )
 }
 
 export default Projects

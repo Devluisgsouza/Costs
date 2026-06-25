@@ -1,22 +1,22 @@
-import styles from './Input.module.css';
+import styles from './Input.module.css'
 
-
-function Input({ type, text, name, placeholder, handleOnChange, value  }) {
-    return (
-        <div className={styles.form_control}>
-            <label htmlFor={name}>{text}:</label>
-            <input 
-                type={type} 
-                name={name} 
-                id={name} 
-                placeholder={placeholder} 
-                onChange={handleOnChange}
-                value={value}
-                step="0.01"
-            />
-        </div>
-    )
+function Input({ type, text, name, placeholder, handleOnChange, value, autoFocus, maxLength }) {
+  return (
+    <div className={styles.form_control}>
+      {text && <label htmlFor={name}>{text}</label>}
+      <input
+        type={type}
+        name={name}
+        id={name}
+        placeholder={placeholder}
+        onChange={handleOnChange}
+        value={value}
+        autoFocus={autoFocus}
+        maxLength={maxLength}
+        step={type === 'number' ? '0.01' : undefined}
+      />
+    </div>
+  )
 }
-
 
 export default Input

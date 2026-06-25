@@ -1,81 +1,79 @@
 .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 15, 30, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+  padding: 24px;
+  animation: fadeIn 200ms ease;
 }
 
 .modal {
-    background: #0d0d0d;
-    border: 1px solid #bfff3e;
-    border-radius: 12px;
-    padding: 2rem;
-    width: 90%;
-    max-width: 520px;
-    color: #fff;
-    position: relative;
-    box-shadow: 0 0 30px rgba(191, 255, 62, 0.3);
-    animation: scaleIn 0.25s ease;
-}
-
-@keyframes scaleIn {
-    from {
-        transform: scale(0.85);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-.modal h2 {
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-}
-
-.modal p {
-    margin: 10px;
-}
-
-.close_btn p{
-    font-size: 1em;
-    position: absolute;
-    top: -8px;
-    right: -3px;
-    font-weight: bold;
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  animation: fadeSlideUp 240ms ease;
 }
 
 .close_btn {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    height: 2em;
-    width: 2em;
-    cursor: pointer;
-    border: solid 2px #ffff;
-    border-radius: 100%;
-    background: transparent;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
 }
 
 .close_btn:hover {
-    background-color: #ff3e3e;
-    border-color: #000;
+  color: var(--accent-danger);
+  border-color: var(--accent-danger);
 }
 
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  padding-right: 40px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.cost {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.label {
+  font-family: var(--font-display);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
 
 .description {
-    margin-top: 0.5rem;
-    line-height: 1.6;
-    white-space: pre-wrap;      /* quebra linha */
-    word-wrap: break-word;      /* quebra palavras grandes */
-    overflow-wrap: break-word;  /* compatibilidade */
+  margin-top: 8px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
-

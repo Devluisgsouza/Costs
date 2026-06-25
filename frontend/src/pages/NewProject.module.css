@@ -1,19 +1,20 @@
-.newproject_container{
-    width: 100%;
-    margin-top: 120px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.page {
+  max-width: 560px;
+  margin: 0 auto;
 }
 
-.newproject_container h1{
-    font-size: 50px;
-    margin-bottom: .5em;
-    margin-top: 100px;
+.title {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 6px;
 }
 
-.newproject_container p{
-    margin-bottom: 1.5em;
-    font-size: 20px;
-    color: #ffbb33;
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 15px;
+  margin-bottom: 28px;
+}
+
+.formCard {
+  padding: 28px;
 }

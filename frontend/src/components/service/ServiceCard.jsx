@@ -1,47 +1,38 @@
-import styles from '../project/ProjectCard.module.css'
+import styles from './ServiceCard.module.css'
 import { BsEyeFill, BsFillTrashFill } from 'react-icons/bs'
+import Card from '../ui/Card'
+import CurrencyDisplay from '../ui/CurrencyDisplay'
 
 function ServiceCard({ id, name, cost, description, handleRemove, handleView }) {
+  const view = (e) => {
+    e.preventDefault()
+    handleView({ id, name, cost, description })
+  }
 
-    const remove = (e) => {
-        e.preventDefault()
-        const confirm = window.confirm(`Tem certeza que deseja excluir o serviço?`)
-        if (confirm) {
-            handleRemove(id, cost)
-        }
-    }
+  const remove = (e) => {
+    e.preventDefault()
+    handleRemove(id, cost)
+  }
 
-    const view = (e) => {
-        e.preventDefault()
-        handleView({ id, name, cost, description })
-    }
+  return (
+    <Card hover className={styles.card}>
+      <div className={styles.top}>
+        <h4 className={styles.name}>{name}</h4>
+        <CurrencyDisplay value={cost} size="sm" />
+      </div>
 
-    const formatCurrency = (value) => {
-        return Number(value).toLocaleString('pt-BR', {
-            style: 'currency',
-            currency: 'BRL',
-        })
-    }
+      <p className={styles.description}>{description}</p>
 
-    return (
-        <div className={styles.project_card}>
-            <h4>{name}</h4>
-            <p><span>Custo: <span>{formatCurrency(cost)}</span></span></p>
-            <p><span>Descrição: </span>{description}</p>
-
-            <div className={styles.project_card_actions}>
-                <button onClick={view}>
-                    <BsEyeFill />
-                    <span>Visualizar</span>
-                </button>
-
-                <button onClick={remove}>
-                    <BsFillTrashFill />
-                    Excluir
-                </button>
-            </div>
-        </div>
-    )
+      <div className={styles.actions}>
+        <button className={styles.view} onClick={view}>
+          <BsEyeFill /> Visualizar
+        </button>
+        <button className={styles.remove} onClick={remove} title="Excluir serviço">
+          <BsFillTrashFill />
+        </button>
+      </div>
+    </Card>
+  )
 }
 
 export default ServiceCard

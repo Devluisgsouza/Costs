@@ -1,0 +1,24 @@
+.value {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+.sm {
+  font-size: 14px;
+}
+.md {
+  font-size: 18px;
+}
+.lg {
+  font-size: 28px;
+}
+
+.success {
+  color: var(--accent-success);
+}
+.danger {
+  color: var(--accent-danger);
+}

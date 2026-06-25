@@ -1,11 +1,16 @@
-.loader {
-    width: 100px;
-    height: 100px;
-    animation: spin 1s linear infinite;
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 48px 0;
+  width: 100%;
 }
 
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
+.loader {
+  width: 42px;
+  height: 42px;
+  border: 3px solid var(--border-accent);
+  border-top-color: var(--accent-primary);
+  border-radius: 50%;
+  animation: spin 800ms linear infinite;
 }

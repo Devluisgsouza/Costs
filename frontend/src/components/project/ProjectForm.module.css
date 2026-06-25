@@ -1,10 +1,12 @@
-.form{
-    margin: 1em 0;
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .error {
-    color: #ff4d4d !important;
-    font-size: 0.85rem !important;
-    margin-top: -8px !important;
-    margin-bottom: 10px !important;
+  color: var(--accent-danger);
+  font-size: 13px;
+  margin-top: -10px;
+  margin-bottom: 14px;
 }

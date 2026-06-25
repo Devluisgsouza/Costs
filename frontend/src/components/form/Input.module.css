@@ -1,25 +1,37 @@
 .form_control {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+  width: 100%;
 }
 
 .form_control label {
-    margin-bottom: .6em;
-    font-weight: bold;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
 }
 
-.form_control input {  
-    padding: .8em .7em;
-    border-radius: 5px;
-    width: 450px;
-    border: none;
-}
-
-.form_control input:valid {
-    color: #000;
+.form_control input {
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 15px;
+  transition: var(--transition);
 }
 
 .form_control input::placeholder {
-    color:#000;
+  color: var(--text-muted);
+}
+
+.form_control input:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
 }

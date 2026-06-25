@@ -1,22 +1,16 @@
-.container{
-    width: 1200px;
-    display: flex;
-    justify-content: space-between;
-    margin: 0 auto;
-    flex-wrap: wrap;
+.container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 36px 24px 64px;
 }
 
-.min-height{
-    min-height: 100vh;
+.min-height {
+  min-height: calc(100vh - 160px);
 }
 
-
-.start {
-    justify-content: flex-start;
+@media (max-width: 768px) {
+  .container {
+    padding: 24px 16px 48px;
+  }
 }
-
-.column {
-    flex-direction: column;
-    justify-content: flex-start;
-}
-

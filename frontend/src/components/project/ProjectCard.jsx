@@ -1,57 +1,62 @@
 import styles from './ProjectCard.module.css'
-import { BsEyeFill, BsFillTrashFill } from 'react-icons/bs'
-import { Link } from 'react-router-dom'
+import { BsEyeFill, BsPencilFill, BsFillTrashFill } from 'react-icons/bs'
+import { Link, useNavigate } from 'react-router-dom'
+import Card from '../ui/Card'
+import Badge from '../ui/Badge'
+import ProgressBar from '../ui/ProgressBar'
+import CurrencyDisplay from '../ui/CurrencyDisplay'
+import { colorFromString } from '../../lib/format'
 
+function ProjectCard({ id, name, budget, category, cost = 0, onRequestRemove }) {
+  const navigate = useNavigate()
+  const categoryColor = colorFromString(category || '')
+  const spent = Number(cost) || 0
+  const total = Number(budget) || 0
+  const exceeded = spent > total
 
-function ProjectCard({id, name, budget, category, handleRemove}) {
+  return (
+    <Card hover accentColor={categoryColor.solid} className={styles.card}>
+      <div className={styles.header}>
+        <h4 className={styles.name}>{name}</h4>
+        <Badge label={category} color={categoryColor} />
+      </div>
 
+      <div className={styles.progressRow}>
+        <ProgressBar value={spent} max={total} showPercent />
+      </div>
 
-    const formatCurrency = (value) => {
-    return Number(value).toLocaleString('pt-BR', {
-        style: 'currency',
-        currency: 'BRL',
-    })}
-
-    const remove = (e) => {
-        e.preventDefault()
-        const confirm = window.confirm(`Tem certeza que deseja excluir o projeto: "${name}"?`)
-
-        if (confirm) {
-        handleRemove(id)
-        }
-        window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: "smooth" 
-        })
-    }
-    
-
-    return (
-        <div className={styles.project_card}>
-            <h4>{name}</h4>
-            <p>
-                <span>Orçamento: <span>R${formatCurrency(budget)}</span></span> 
-            </p>
-            <div className={styles.category_text}>
-                <p>
-                    <span className={`${styles[category.toLowerCase()]}`}></span> {category}
-                </p>
-            </div>
-            <div className={styles.project_card_actions}>
-                <Link to={`/project/${id}`}>
-                    <BsEyeFill /> Visualizar
-                </Link>
-                <button onClick={remove}>
-                    <BsFillTrashFill /> Excluir
-                </button>
-            </div>
+      <div className={styles.figures}>
+        <div>
+          <span className={styles.label}>Gasto</span>
+          <CurrencyDisplay value={spent} size="sm" exceeded={exceeded} />
         </div>
-        
+        <div className={styles.right}>
+          <span className={styles.label}>Orçamento</span>
+          <CurrencyDisplay value={total} size="sm" />
+        </div>
+      </div>
 
-    )
+      <div className={styles.actions}>
+        <Link to={`/project/${id}`} className={styles.view}>
+          <BsEyeFill /> Detalhes
+        </Link>
+        <button
+          className={styles.edit}
+          onClick={() => navigate(`/project/${id}`, { state: { edit: true } })}
+          title="Editar projeto"
+        >
+          <BsPencilFill />
+        </button>
+        <button
+          className={styles.remove}
+          onClick={() => onRequestRemove?.(id, name)}
+          title="Excluir projeto"
+        >
+          <BsFillTrashFill />
+        </button>
+      </div>
+    </Card>
+  )
 }
-
-
 
 export default ProjectCard

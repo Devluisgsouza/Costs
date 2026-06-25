@@ -1,0 +1,58 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-glow));
+  border-radius: 50%;
+  box-shadow: 0 0 16px rgba(99, 102, 241, 0.4);
+}
+
+.name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.logout {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.logout:hover {
+  color: var(--accent-danger);
+  border-color: var(--accent-danger);
+}
+
+@media (max-width: 768px) {
+  .name {
+    display: none;
+  }
+  .logoutText {
+    display: none;
+  }
+  .logout {
+    padding: 8px;
+  }
+}
