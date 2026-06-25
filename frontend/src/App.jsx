@@ -4,6 +4,7 @@ import { SessionProvider, useUserSession } from './context/SessionContext'
 import { ToastProvider } from './context/ToastContext'
 
 import Navbar from './components/layout/Navbar'
+import BottomNav from './components/layout/BottomNav'
 import Footer from './components/layout/Footer'
 import Container from './components/layout/Container'
 import ScrollTop from './components/layout/ScrollTop'
@@ -33,6 +34,7 @@ function AuthenticatedApp() {
           </Routes>
         </Container>
         <Footer />
+        <BottomNav />
       </div>
     </Router>
   )

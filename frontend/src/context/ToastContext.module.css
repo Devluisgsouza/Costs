@@ -73,10 +73,10 @@
   color: var(--accent-glow);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .container {
     top: auto;
-    bottom: 16px;
+    bottom: calc(80px + env(safe-area-inset-bottom, 0px));
     right: 16px;
     left: 16px;
   }

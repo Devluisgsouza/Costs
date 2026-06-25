@@ -10,14 +10,16 @@ function Navbar() {
   return (
     <nav className={styles.navbar}>
       <div className={styles.inner}>
-        <NavLink className={styles.logo} to="/">
-          <span className={styles.logoIcon}>
-            <BsBoxes />
-          </span>
-          <span className={styles.logoText}>
-            Costs<span className={styles.dot}>.</span>
-          </span>
-        </NavLink>
+        <div className={styles.logoArea}>
+          <NavLink className={styles.logo} to="/">
+            <span className={styles.logoIcon}>
+              <BsBoxes />
+            </span>
+            <span className={styles.logoText}>
+              Costs<span className={styles.dot}>.</span>
+            </span>
+          </NavLink>
+        </div>
 
         <ul className={styles.list}>
           <li>
@@ -42,7 +44,9 @@ function Navbar() {
           </li>
         </ul>
 
-        <UserBadge />
+        <div className={styles.userArea}>
+          <UserBadge />
+        </div>
       </div>
     </nav>
   )

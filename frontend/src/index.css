@@ -77,20 +77,16 @@ textarea {
   color: var(--text-muted);
 }
 
-/* Scrollbar dark */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+/* Esconde a scrollbar em toda a aplicação, mantendo o scroll ativo */
+* {
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE / Edge (legado) */
 }
-::-webkit-scrollbar-track {
-  background: var(--bg-base);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--border-accent);
-  border-radius: 6px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-primary);
+
+*::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;                /* Chrome / Safari / Edge / Opera */
 }
 
 /* Animações globais */
@@ -112,6 +108,13 @@ textarea {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+/* No mobile, reserva espaço para a barra de navegação inferior fixa */
+@media (max-width: 640px) {
+  .app-shell {
+    padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px));
+  }
 }
 
 .min-height {

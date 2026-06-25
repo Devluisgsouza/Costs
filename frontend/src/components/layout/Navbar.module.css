@@ -18,10 +18,24 @@
   gap: 24px;
 }
 
-.logo {
+.logoArea {
+  flex: 1;
   display: flex;
   align-items: center;
+  min-width: 0;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
   gap: 10px;
+}
+
+.userArea {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  min-width: 0;
 }
 
 .logoIcon {
@@ -53,7 +67,6 @@
   list-style: none;
   align-items: center;
   gap: 28px;
-  margin-left: auto;
 }
 
 .link {
@@ -91,20 +104,9 @@
   }
 }
 
-@media (max-width: 560px) {
-  .inner {
-    flex-wrap: wrap;
-  }
+/* No mobile a navegação vai para a barra inferior (BottomNav) */
+@media (max-width: 640px) {
   .list {
-    order: 3;
-    width: 100%;
-    margin-left: 0;
-    justify-content: space-between;
-    gap: 8px;
-    padding-top: 6px;
-    border-top: 1px solid var(--border-subtle);
-  }
-  .logoText {
     display: none;
   }
 }

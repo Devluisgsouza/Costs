@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  margin-left: auto;
 }
 
 .avatar {
@@ -54,5 +55,36 @@
   }
   .logout {
     padding: 8px;
+  }
+}
+
+/* Mobile: agrupa avatar + Sair em um único card (pílula) ancorado à direita */
+@media (max-width: 640px) {
+  .wrapper {
+    gap: 4px;
+    padding: 4px 5px 4px 6px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-accent);
+    border-radius: 999px;
+  }
+
+  .avatar {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+
+  .logout {
+    border-color: transparent;
+    color: var(--text-secondary);
+    border-radius: 999px;
+    padding: 7px;
+    font-size: 16px;
+  }
+
+  .logout:hover {
+    color: var(--accent-danger);
+    background: rgba(239, 68, 68, 0.12);
+    border-color: transparent;
   }
 }
