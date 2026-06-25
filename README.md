@@ -63,11 +63,7 @@ de dados para usar.
 - [CSS Modules](https://github.com/css-modules/css-modules) — estilização por componente
 - [React Icons](https://react-icons.github.io/react-icons/) — ícones
 - [uuid](https://github.com/uuidjs/uuid) — geração de identificadores
-- **localStorage** — persistência dos dados por usuário (sem backend)
-
-> 💡 O diretório `backend/` contém uma API **legada** (Node.js + Express + MongoDB) usada em
-> versões anteriores. Após a migração da persistência para o `localStorage`, ela **não é mais
-> necessária** para executar o app — ficou no repositório apenas como referência.
+- **localStorage** — persistência dos dados por usuário (sem backend nem banco de dados)
 
 ---
 
@@ -120,7 +116,6 @@ Costs/
 │       ├── context/          # SessionContext, ToastContext
 │       ├── lib/              # db (localStorage) e formatação
 │       └── pages/            # LoginScreen, Home, Projects, Project...
-├── backend/                  # API legada (Node.js + MongoDB) — opcional
 └── README.md
 ```
 
