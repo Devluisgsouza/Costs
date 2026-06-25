@@ -13,8 +13,13 @@
     display: flex;
     align-items: stretch;
     justify-content: space-around;
-    height: 64px;
+    /* Altura de conteúdo fixa (60px) + área do safe-area como acréscimo.
+       Com box-sizing: border-box, somar o inset ao min-height mantém a área
+       útil estável mesmo quando o inset muda durante o scroll. */
+    min-height: calc(60px + env(safe-area-inset-bottom, 0px));
     padding-bottom: env(safe-area-inset-bottom, 0px);
+    padding-left: env(safe-area-inset-left, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
     background: rgba(17, 24, 39, 0.85);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);

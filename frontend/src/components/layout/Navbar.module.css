@@ -7,6 +7,8 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-subtle);
+  /* Respeita o status bar/notch no modo app (standalone) */
+  padding-top: env(safe-area-inset-top, 0px);
 }
 
 .inner {
