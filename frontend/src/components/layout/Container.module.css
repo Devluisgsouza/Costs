@@ -5,8 +5,10 @@
   padding: 36px 24px 64px;
 }
 
+/* Cresce para empurrar o footer ao fim sem forçar altura além de 100vh
+   (evita rolagem vertical indevida no mobile com a barra inferior fixa) */
 .min-height {
-  min-height: calc(100vh - 160px);
+  flex: 1;
 }
 
 @media (max-width: 768px) {

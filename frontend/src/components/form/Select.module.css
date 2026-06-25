@@ -22,7 +22,7 @@
   border: 1px solid var(--border-accent);
   border-radius: var(--radius-sm);
   color: var(--text-primary);
-  font-size: 15px;
+  font-size: 16px;
   transition: var(--transition);
   cursor: pointer;
 }

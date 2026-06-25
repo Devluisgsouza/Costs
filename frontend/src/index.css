@@ -49,6 +49,8 @@ body {
   color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  /* Impede estouro horizontal sem quebrar o position: sticky do header */
+  overflow-x: clip;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -117,6 +119,3 @@ textarea {
   }
 }
 
-.min-height {
-  min-height: calc(100vh - 160px);
-}
